@@ -1,0 +1,17 @@
+sudo: required
+
+language: java
+
+
+stages:
+  - build & test
+  - sonar
+
+jobs:
+  fast_finish: true
+  include:
+    - stage: build & test
+      jdk: openjdk10
+      script:
+        - "java -Xmx32m -version"
+        - "./gradlew build --info"
